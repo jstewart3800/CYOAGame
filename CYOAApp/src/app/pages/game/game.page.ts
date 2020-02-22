@@ -9,31 +9,21 @@ import { Scene } from 'src/app/interfaces/scene';
 })
 export class GamePage implements OnInit {
   myScenes = [];
+  displayScene: Scene;
 
   // Might need some tweaking
-  constructor(private sService: SceneService) {
-    sService.getScenes().subscribe(
-      x => {
-        console.log(x.feed.entry)
-        for (let sceneInQuestion of x.feed.entry) {
-          let nextScene: Scene = {
-            id: sceneInQuestion.gsx$id.$t,
-            sceneText: sceneInQuestion.gsx$scene.$t,
-            choice1: sceneInQuestion.gsx$choice1.$t,
-            choice2: sceneInQuestion.gsx$choice2.$t,
-            choice3: sceneInQuestion.gsx$choice3.$t,
-            result1: sceneInQuestion.gsx$result1.$t,
-            result2: sceneInQuestion.gsx$result2.$t,
-            result3: sceneInQuestion.gsx$result3.$t,
-            ending: sceneInQuestion.gsx$ending.$t
-          };
-          this.myScenes.push(nextScene);
-        }
-        console.log(this.myScenes);
-      });
-  }
+  constructor(private sService: SceneService) { }
 
   ngOnInit() {
+    this.displayScene = this.sService.getFirstScene()
+  }
+
+  nextScene(id: number) {
+    if (this.displayScene.ending === true) {
+      //ENDING STUFF
+    } else {
+      this.displayScene = this.sService.getNextScene(id)
+    }
   }
 
 }
