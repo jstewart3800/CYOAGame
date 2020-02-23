@@ -77,7 +77,7 @@ export class SceneService {
   }
 
   playMusic() {
-    this.audio.src = ''; //insert music url here
+    this.audio.src = 'assets/Dungeon.mp3'; //insert music url here
     this.audio.autoplay = true;
   }
 }
