@@ -1,16 +1,30 @@
-<ion-content >
-  <ion-grid>
-
+<ion-content>
+  <ion-grid *ngIf="endingNext === false; else endBox">
     <ion-row>
       <ion-col class="whiteText ion-text-center sceneBox">
-        <h4>
+        <p>
           {{displayScene.sceneText}}
-        </h4>
-        <br>
+        </p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
         <ion-button (click)='nextScene(displayScene.result1)' expand="block" color="light">{{displayScene.choice1}}</ion-button>
         <ion-button (click)='nextScene(displayScene.result2)' expand="block" color="light">{{displayScene.choice2}}</ion-button>
-        <ion-button (click)='nextScene(displayScene.result3)' expand="block" color="light">{{displayScene.choice3}}</ion-button>
+        <ion-button *ngIf="displayScene.choice3 !== ''" (click)='nextScene(displayScene.result3)' expand="block" color="light">{{displayScene.choice3}}</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ng-template #endBox>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="whiteText ion-text-center sceneBox">
+          <p>{{displayEnd.ending}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-template>
+
 </ion-content>
