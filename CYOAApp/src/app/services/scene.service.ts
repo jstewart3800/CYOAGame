@@ -38,7 +38,7 @@ export class SceneService {
             result1: s.gsx$result1.$t,
             result2: s.gsx$result2.$t,
             result3: s.gsx$result3.$t,
-            ending: s.gsx$ending.$t.toLowerCase() as boolean
+            ending: s.gsx$ending.$t
           }
           this.allScenes.push(nextScene);
 

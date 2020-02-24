@@ -9,7 +9,7 @@
     </ion-row>
 
     <ion-row>
-      <ion-col>
+      <ion-col class='buttPosition'>
         <ion-button (click)='nextScene(displayScene.result1)' expand="block" color="light">{{displayScene.choice1}}</ion-button>
         <ion-button (click)='nextScene(displayScene.result2)' expand="block" color="light">{{displayScene.choice2}}</ion-button>
         <ion-button *ngIf="displayScene.choice3 !== ''" (click)='nextScene(displayScene.result3)' expand="block" color="light">{{displayScene.choice3}}</ion-button>
@@ -24,6 +24,13 @@
           <p>{{displayEnd.ending}}</p>
         </ion-col>
       </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" color="light" routerLink="/home">Return to Title</ion-button>
+        </ion-col>
+      </ion-row>
+
     </ion-grid>
   </ng-template>
 

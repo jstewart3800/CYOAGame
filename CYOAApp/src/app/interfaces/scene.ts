@@ -7,5 +7,5 @@ export interface Scene {
     result1: number
     result2: number
     result3: number
-    ending: boolean
+    ending: string
 }

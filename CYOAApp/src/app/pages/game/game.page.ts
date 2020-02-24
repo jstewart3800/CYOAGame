@@ -20,7 +20,7 @@ export class GamePage implements OnInit {
   }
 
   nextScene(id: number) {
-    if (this.displayScene.ending === true) {
+    if (this.displayScene.ending === 't') {
       this.endingNext = true;
       console.log(this.endingNext);
       this.displayEnd = this.sService.getYourEnding(id);
