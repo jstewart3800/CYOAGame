@@ -9,7 +9,7 @@ import { SceneService } from '../services/scene.service';
 export class HomePage {
 
   constructor(private sService: SceneService) {
-    // sService.playMusic();
+    sService.playMusic();
   }
 
    
